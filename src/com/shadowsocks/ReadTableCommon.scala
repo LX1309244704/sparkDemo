@@ -15,6 +15,7 @@ object ReadTableCommon {
     import spark.implicits._
     spark.read.table(logTable).where($"login_time" === targetDay)
       .select($"login_time", $"ip_send")
+      .distinct()
   }
 
   /**
